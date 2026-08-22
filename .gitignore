@@ -1,0 +1,18 @@
+# Ignore target / build output
+**/target/
+**/.settings/
+**/.classpath
+**/.project
+**/.factorypath
+
+# Ignore Node.js / Vite build output
+**/node_modules/
+**/dist/
+**/.vite/
+
+# Environment and IDE files
+.env
+.env.local
+.DS_Store
+.idea/
+*.log

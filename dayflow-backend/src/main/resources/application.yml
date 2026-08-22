@@ -1,0 +1,41 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: dayflow-backend
+  datasource:
+    url: ${DB_URL:jdbc:h2:mem:dayflowdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE}
+    driver-class-name: ${DB_DRIVER:org.h2.Driver}
+    username: ${DB_USERNAME:sa}
+    password: ${DB_PASSWORD:}
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        web-allow-others: true
+  jpa:
+    database-platform: ${DB_DIALECT:org.hibernate.dialect.H2Dialect}
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:DayflowSuperSecretJwtSigningKey98765432101234567890ForHRMSApp}
+    expiration-ms: 86400000 # 24 hours
+  cloudinary:
+    cloud-name: ${CLOUDINARY_CLOUD_NAME:demo}
+    api-key: ${CLOUDINARY_API_KEY:123456789}
+    api-secret: ${CLOUDINARY_API_SECRET:abcdef123456}
+  gemini:
+    api-key: ${GEMINI_API_KEY:mock-gemini-key}
+
+logging:
+  level:
+    com.dayflow: DEBUG
+    org.springframework.security: INFO

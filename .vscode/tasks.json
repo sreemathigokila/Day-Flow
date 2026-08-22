@@ -1,0 +1,39 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Dayflow Backend (Spring Boot)",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-Command",
+        "$env:JAVA_HOME='C:\\Program Files\\OpenLogic\\jdk-25.0.2.10-hotspot'; $env:MAVEN_OPTS='-Djavax.net.ssl.trustStoreType=WINDOWS-ROOT'; .\\mvnw.cmd spring-boot:run"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/dayflow-backend"
+      },
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Run Dayflow Frontend (React Vite)",
+      "type": "shell",
+      "command": "cmd.exe",
+      "args": [
+        "/c",
+        "npm install && npm run dev"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/dayflow-frontend"
+      },
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+  ]
+}
